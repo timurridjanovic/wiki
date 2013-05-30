@@ -135,7 +135,7 @@ def increment_version(page):
         logging.error('db hit version')
         version = Article.all().filter('title =', page).order('-created').get()
         if version:
-            version = version.version.get()
+            version = version.version
         
         else:
             version = 0
