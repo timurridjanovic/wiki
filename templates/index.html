@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Wiki</title>
+        <link rel="stylesheet" type="text/css" href="/css/mystyle.css"/>
+        
+    </head>
+
+    <body>
+       
+        <div class = "header">
+        <div class = "wrapper">
+                <a href="/"><h1>Timur's Wiki</h1></a>
+                    
+                <form class="searchBar" action = "/search" method = "post">
+                    <input type="text" class="search-box" name = "search" placeholder="Search for articles..." size='30'/>
+                    <input class="button orange" type="submit" value="Search"/>
+                </form>
+
+
+            {% if user %}
+                <div class="logged-in">{{username}} (<a href="/logout">logout</a>)</div>
+                {% block edit %}{% endblock %}
+               
+            {% else %}
+                <div class="login-area">
+                    <form action = "/login" method = "post">
+                        
+                        <input type="text" class="search-box" name="login_username" value="{{username}}" placeholder="Username"/>
+                        <input type="password" class="search-box" name="login_password" value="" placeholder="Password"/>
+                        <input class="button orange" type="submit" value="Connexion"/>
+                        <input class="button orange" type="button" onClick="parent.location='signup'" value="Signup">
+                    </form>
+            {% endif %}
+                 
+                </div>
+        </div>
+        </div>
+       
+        
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

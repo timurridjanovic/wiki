@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class = "pageWrapper">
+    <div class = "form">
+        <form method="post">
+            <h1>Signup</h1>
+            <table>
+                <tr>
+                    <td class = "label">
+                        <input type="text" class="signup-box" name="username" value="{{username}}" placeholder="Username"/>
+                    </td>
+                    <td class = "error">
+                        {{username_error}}{{user_exists_error}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "label">
+                        <input type="password" class="signup-box" name="password" value="" placeholder="Password"/>
+                    </td>
+                    <td class = "error">
+                        {{password_error}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "label"> 
+                        <input type="password" class="signup-box" name="verify" value="" placeholder="Verify Password"/>
+                    </td>
+                    <td class = "error">
+                        {{verify_error}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "label">
+                        <input type="text" class="signup-box" name="email" value="{{email}}" placeholder="Email"/>
+                    </td>
+                    <td class = "error">
+                        {{email_error}}
+                    </td>
+                </tr>
+           
+            </table>
+            <input class="login-button orange" type="submit" value="Submit">
+
+        </form>
+    </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block edit %}
+    <div class="editMenu"><a href="/{{page}}">View</a> | <a href="/_history/{{page}}">History</a></div>
+{% endblock %}
+
+{% block content %}
+     <div class="pageWrapper">
+
+     {% for article in articles %}
+     <div class="articleBox">
+         <div class="pageTitlePosted"><h1>{{title.capitalize()}}</h1></div>
+         <div class="articleCreated">Updated by {{article.username}} on: {{article.created.strftime("%b %d, %Y, %H:%M:%S")}}</div>
+         <hr class="page_line">
+         <pre class="articleContent">{{article.content}}</pre>
+         
+         
+     </div>
+     <form method="post">
+             <input type="hidden" name="article_content" value="{{article.content}}"/>
+             <input type="submit" name="edit" class="historyEditButton orange" value="Edit"/>
+             <input type="submit" name="view" class="historyEditButton orange" value="View"/>
+     </form>
+     
+     {% endfor %}
+     </div>
+{% endblock %}
+

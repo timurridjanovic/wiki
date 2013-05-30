@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block edit %}
+    <div class="editMenu"><a href="/view/_edit/{{page}}">Edit</a> | <a href="/_history/{{page}}">History</a></div>
+{% endblock %}
+
+{% block content %}
+     <div class="pageWrapper">
+     <div class="articleBox">
+         <div class="pageTitlePosted"><h1>{{title.capitalize()}}</h1></div>
+         <hr class="page_line" size=3>
+         <pre class="articleContent">{{content}}</pre>
+     </div>
+     </div>
+     
+{% endblock %}
+
